@@ -1,0 +1,2782 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فرم نظرسنجی از مشتریان - شرکت مهندسی احداث گسترش نیروی پارس</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- ✅ خروجی PDF با همان ظاهر صفحه -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        /* Reset و فونت‌های پایه */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary-color: #1a5f7a;
+            --secondary-color: #ff6b35;
+            --accent-color: #2c5aa0;
+            --success-color: #28a745;
+            --danger-color: #dc3545;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --border-color: #dee2e6;
+            --shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+            --instagram-gradient: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            --whatsapp-color: #25D366;
+            --telegram-color: #0088cc;
+            --website-color: #1a5f7a;
+        }
+
+        body {
+            font-family: dubai,'Segoe UI', Tahoma, Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            color: var(--dark-color);
+            line-height: 1.7;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        /* هدر با لوگوی چرخشی */
+        .header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #0d4d63 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0; right: 0;
+            width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.1;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+            width: 100%;
+            max-width: 900px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header-title-container { flex: 1; text-align: center; }
+
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-align: center;
+            color: white;
+        }
+
+        /* لوگوی چرخشی سه‌بعدی برجسته */
+        .logo-container { display: flex; align-items: center; justify-content: center; position: relative; }
+        .header-left { position: relative; }
+
+        .logo-placeholder {
+            width: 100px;
+            height: 100px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #1a5f7a, #0d4d63);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            text-align: center;
+            box-shadow: 0 0 14px rgba(255, 255, 255, 0.7);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            animation: spin3D 8s linear infinite;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .logo-placeholder:hover {
+            animation-play-state: paused;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
+        }
+
+        .placeholder-text { line-height: 1.3; }
+        
+        /* استایل برای لوگوی واقعی */
+        .company-logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 12px;
+            object-fit: contain;
+            box-shadow: 0 0 14px rgba(255, 255, 255, 0.7);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            animation: spin3D 8s linear infinite;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            background: white;
+            padding: 5px;
+        }
+
+        .company-logo:hover {
+            animation-play-state: paused;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
+        }
+
+        @keyframes spin3D {
+            from { transform: rotateY(0deg) rotateX(10deg); }
+            to   { transform: rotateY(360deg) rotateX(10deg); }
+        }
+
+        .document-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 15px 0;
+            font-size: 16px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+
+        .company-info {
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .company-name-bold {
+            font-weight: 800;
+            color: #ffcc00;
+            font-size: 24px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .company-name-large {
+            font-weight: 800;
+            color: #ffcc00;
+            font-size: 26px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .welcome-text {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            line-height: 1.9;
+            font-size: 16px;
+            text-align: justify;
+        }
+
+        /* بخش‌های فرم */
+        .section { padding: 30px; border-bottom: 1px solid var(--border-color); }
+
+        .section-title {
+            color: var(--primary-color);
+            font-size: 22px;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+        }
+
+        .section-title::before { content: "▸"; color: var(--secondary-color); font-size: 24px; }
+
+        /* طرح دو ستونی برای مشخصات */
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 992px) {
+            .two-columns { grid-template-columns: 1fr; gap: 20px; }
+            .header-content { flex-direction: column; text-align: center; }
+        }
+
+        .column {
+            background-color: #f8fafc;
+            border-radius: 10px;
+            padding: 25px;
+            border: 1px solid #e9ecef;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .column-title {
+            color: var(--primary-color);
+            font-size: 18px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e9ecef;
+            font-weight: 600;
+        }
+
+        .form-group { margin-bottom: 20px; }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #495057;
+            font-size: 15px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+            background-color: white;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(26, 95, 122, 0.15);
+            outline: none;
+        }
+
+        textarea.form-control { min-height: 120px; resize: vertical; line-height: 1.6; }
+
+        /* لیست باکس محصولات */
+        .product-select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+            background-color: white;
+            cursor: pointer;
+        }
+
+        .product-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(26, 95, 122, 0.15);
+            outline: none;
+        }
+
+        /* جدول امتیازدهی */
+        .rating-table-container {
+            overflow-x: auto;
+            margin: 25px 0;
+            border-radius: 10px;
+            border: 1px solid #e9ecef;
+        }
+
+        .rating-table { width: 100%; border-collapse: collapse; min-width: 800px; }
+
+        .rating-table th {
+            background-color: #e8f4fc;
+            color: var(--primary-color);
+            font-weight: 700;
+            padding: 18px 12px;
+            text-align: center;
+            border: 1px solid #dee2e6;
+            font-size: 15px;
+        }
+
+        .rating-table td {
+            padding: 16px 12px;
+            border: 1px solid #dee2e6;
+            text-align: center;
+            transition: background-color 0.2s;
+        }
+
+        .rating-table tr:hover td { background-color: #f8f9fa; }
+
+        .rating-table td:first-child {
+            text-align: right;
+            font-weight: 600;
+            color: #343a40;
+            background-color: #f1f5f9;
+            width: 30%;
+        }
+
+        .rating-option { display: inline-block; position: relative; margin: 0 5px; }
+        .rating-option input[type="radio"] { display: none; }
+
+        .rating-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            line-height: 42px;
+            border-radius: 50%;
+            background-color: white;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 15px;
+            font-weight: 600;
+            color: #495057;
+            border: 2px solid #ced4da;
+            position: relative;
+        }
+
+        .rating-option input[type="radio"]:checked + .rating-label {
+            background-color: var(--primary-color);
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border-color: var(--primary-color);
+        }
+
+        .rating-option:hover .rating-label { background-color: #f8f9fa; transform: translateY(-2px); }
+
+        /* تیک درون دایره */
+        .rating-label::before { content: ""; position: absolute; opacity: 0; transition: all 0.3s ease; }
+
+        .rating-option input[type="radio"]:checked + .rating-label::before {
+            content: "✓";
+            position: absolute;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* رنگ‌های مختلف برای هر ستون هنگام انتخاب */
+        .rating-table td:nth-child(2) .rating-label { border-color: #dc3545; }
+        .rating-table td:nth-child(3) .rating-label { border-color: #fd7e14; }
+        .rating-table td:nth-child(4) .rating-label { border-color: #ffc107; }
+        .rating-table td:nth-child(5) .rating-label { border-color: #20c997; }
+        .rating-table td:nth-child(6) .rating-label { border-color: #28a745; }
+
+        .rating-table td:nth-child(2) .rating-option input[type="radio"]:checked + .rating-label { background-color: #dc3545; border-color: #dc3545; }
+        .rating-table td:nth-child(3) .rating-option input[type="radio"]:checked + .rating-label { background-color: #fd7e14; border-color: #fd7e14; }
+        .rating-table td:nth-child(4) .rating-option input[type="radio"]:checked + .rating-label { background-color: #ffc107; border-color: #ffc107; }
+        .rating-table td:nth-child(5) .rating-option input[type="radio"]:checked + .rating-label { background-color: #20c997; border-color: #20c997; }
+        .rating-table td:nth-child(6) .rating-option input[type="radio"]:checked + .rating-label { background-color: #28a745; border-color: #28a745; }
+
+        /* انیمیشن برای تیک هنگام انتخاب */
+        @keyframes checkmarkAnimation {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .rating-option input[type="radio"]:checked + .rating-label::before { animation: checkmarkAnimation 0.3s ease-out; }
+
+        /* بخش امتیاز کلی و احتمال معرفی کنار هم */
+        .rating-percentage-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        @media (max-width: 768px) { .rating-percentage-container { grid-template-columns: 1fr; gap: 20px; } }
+
+        .overall-rating {
+            background: linear-gradient(135deg, #e8f4fc 0%, #d4e7f7 100%);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            border: 2px solid var(--accent-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 280px;
+        }
+
+        .referral-percentage {
+            background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            border: 2px solid var(--secondary-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 280px;
+        }
+
+        .rating-scale-label, .percentage-label {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* اسلایدر امتیاز کلی */
+        .rating-slider-container { width: 100%; position: relative; z-index: 2; }
+
+        .rating-slider {
+            width: 100%;
+            height: 20px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: linear-gradient(90deg, #2ec572 0%, #ff6b35 50%, #d83838 100%);
+            outline: none;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .rating-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 30px; height: 30px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            cursor: pointer;
+            border: 3px solid white;
+            box-shadow: 0 0 5px rgba(0,0,0,0.3);
+        }
+
+        .rating-value {
+            font-size: 24px;
+            font-weight: 700;
+            margin-top: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .rating-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #6c757d;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* اسلایدر احتمال معرفی */
+        .percentage-slider-container { width: 100%; position: relative; z-index: 2; }
+
+        .percentage-slider {
+            width: 100%;
+            height: 20px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: linear-gradient(90deg, #43c776, #ff9307, #e24343);
+            outline: none;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .percentage-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 30px; height: 30px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            cursor: pointer;
+            border: 3px solid white;
+            box-shadow: 0 0 5px rgba(0,0,0,0.3);
+        }
+
+        .percentage-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-top: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .percentage-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #6c757d;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ایموجی‌های پویا */
+        .emoji-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0; right: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .emoji {
+            position: absolute;
+            font-size: 32px;
+            opacity: 0;
+            animation: floatUp 3s ease-in-out forwards;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        @keyframes floatUp {
+            0%   { transform: translateY(100px) scale(0.5); opacity: 0; }
+            10%  { opacity: 1; }
+            90%  { opacity: 1; }
+            100% { transform: translateY(-100px) scale(1.2); opacity: 0; }
+        }
+
+        /* نحوه آشنایی */
+        .referral-options { display: flex; flex-wrap: wrap; gap: 25px; margin-top: 20px; }
+        .referral-option { flex: 1; min-width: 180px; }
+        .referral-option input[type="radio"] { display: none; }
+
+        .referral-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            background-color: white;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .referral-label:hover {
+            border-color: var(--primary-color);
+            background-color: #f8fafc;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .referral-option input[type="radio"]:checked + .referral-label {
+            border-color: var(--primary-color);
+            background: linear-gradient(135deg, #e8f4fc, #d4e7f7);
+            color: var(--primary-color);
+            font-weight: 700;
+            box-shadow: 0 5px 15px rgba(26, 95, 122, 0.2);
+        }
+
+        .referral-icon { font-size: 20px; }
+        .referral-option input[type="radio"]:checked + .referral-label .referral-icon { transform: scale(1.2); }
+
+        .referral-icon.website { color: #1a5f7a; }
+        .referral-icon.instagram {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .referral-icon.search { color: #34a853; }
+        .referral-icon.others { color: #9c27b0; }
+        .referral-icon.exhibition { color: #ff9800; }
+        .referral-icon.other { color: #607d8b; }
+
+        /* بخش اشتراک‌گذاری */
+        .social-section {
+            padding: 40px 30px;
+            background: linear-gradient(135deg, #f9fcff 0%, #eef5ff 100%);
+            border-top: 1px solid rgba(0,0,0,0.05);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .social-title {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 22px;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .social-title i { margin-left: 10px; color: var(--secondary-color); }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .social-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+            text-align: center;
+            padding: 25px 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .social-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); }
+
+        .social-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 30px;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .social-icon.website   { background: linear-gradient(135deg, var(--website-color), #0d4d63); }
+        .social-icon.instagram { background: var(--instagram-gradient); }
+        .social-icon.whatsapp  { background: linear-gradient(135deg, var(--whatsapp-color), #128C7E); }
+        .social-icon.share     { background: linear-gradient(135deg, #6c5ce7, #a29bfe); }
+
+        .social-card h3 { font-size: 18px; margin-bottom: 10px; color: #333; font-weight: 700; }
+        .social-card p  { font-size: 14px; color: #666; margin-bottom: 20px; line-height: 1.5; }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            width: 90%;
+            max-width: 180px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .social-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+        .social-btn i { font-size: 16px; }
+
+        .social-btn.website   { background: var(--website-color); }
+        .social-btn.instagram { background: #E4405F; }
+        .social-btn.whatsapp  { background: var(--whatsapp-color); }
+        .social-btn.share     { background: linear-gradient(135deg, #9c27b0, #6a1b9a); }
+
+        /* دکمه‌های فرم */
+        .form-actions {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 40px 0 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 18px 40px;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            min-width: 200px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        .btn:hover { transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0,0,0,0.2); }
+        .btn:active { transform: translateY(-2px); }
+
+        .btn-save     { background: linear-gradient(135deg, var(--success-color), #1e7e34); color: white; }
+        .btn-reset    { background: linear-gradient(135deg, var(--danger-color), #c82333); color: white; }
+        .btn-whatsapp { background: linear-gradient(135deg, var(--whatsapp-color), #128C7E); color: white; }
+        .btn-pdf      { background: linear-gradient(135deg, #dc3545, #c82333); color: white; }
+
+        /* منوی اشتراک گذاری PDF */
+        .share-pdf-menu {
+            position: fixed;
+            top: 50%;
+            right: 50%;
+            transform: translate(50%, -50%);
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            z-index: 2000;
+            display: none;
+            max-width: 500px;
+            width: 90%;
+            border: 2px solid var(--primary-color);
+        }
+
+        .share-pdf-menu.active { display: block; animation: fadeIn 0.3s ease-out; }
+
+        .share-pdf-menu h3 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .share-pdf-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .share-pdf-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            border-radius: 12px;
+            background: #f8fafc;
+            border: 2px solid #e9ecef;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .share-pdf-option:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            background: white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .share-pdf-icon {
+            width: 60px; height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 24px;
+            color: white;
+        }
+
+        .share-pdf-icon.whatsapp  { background: linear-gradient(135deg, var(--whatsapp-color), #128C7E); }
+        .share-pdf-icon.telegram  { background: linear-gradient(135deg, var(--telegram-color), #34b7f1); }
+        .share-pdf-icon.email     { background: linear-gradient(135deg, #ea4335, #d14836); }
+        .share-pdf-icon.download  { background: linear-gradient(135deg, var(--primary-color), #0d4d63); }
+
+        .share-pdf-option span { font-weight: 600; color: var(--dark-color); font-size: 16px; }
+
+        .close-share-menu {
+            width: 100%;
+            padding: 15px;
+            background: #f8f9fa;
+            border: none;
+            border-radius: 10px;
+            color: #6c757d;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 16px;
+        }
+
+        .close-share-menu:hover { background: #e9ecef; color: var(--dark-color); }
+
+        .overlay {
+            position: fixed;
+            top: 0; right: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1999;
+            display: none;
+        }
+
+        .overlay.active { display: block; }
+
+        /* فوتر */
+        .footer {
+            background: linear-gradient(135deg, #2c3e50, #1a252f);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .footer p { margin-bottom: 12px; opacity: 0.9; line-height: 1.8; }
+        .copyright {
+            font-size: 15px;
+            opacity: 0.7;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* ✅ بخش PDF - طراحی زیبا و پیشرفته - بهبود یافته */
+        .pdf-section {
+            display: none;
+            font-family: 'Dubai', 'Segoe UI', Tahoma, sans-serif;
+        }
+
+        .pdf-summary {
+            background: white;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        /* هدر PDF */
+        .pdf-header {
+            background: linear-gradient(135deg, #1a5f7a 0%, #0d4d63 100%);
+            color: white;
+            padding: 15px 20px !important; /* کاهش */
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            page-break-inside: avoid !important;
+            break-inside: avoid !important;
+        }
+
+        .pdf-header::before {
+            content: "";
+            position: absolute;
+            top: 0; right: 0;
+            width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.1;
+        }
+
+        .pdf-header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .pdf-title {
+            font-size: 20px !important; /* کاهش */
+            font-weight: 800;
+            margin-bottom: 5px !important; /* کاهش */
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .pdf-subtitle {
+            font-size: 14px !important; /* کاهش */
+            opacity: 0.9;
+            margin-bottom: 8px !important; /* کاهش */
+        }
+
+        .pdf-meta-info {
+            display: flex;
+            justify-content: center;
+            gap: 15px !important; /* کاهش */
+            margin-top: 10px !important; /* کاهش */
+            font-size: 11px !important; /* کاهش */
+            opacity: 0.9;
+            flex-wrap: wrap;
+        }
+
+        /* محتوای اصلی PDF */
+        .pdf-main-content {
+            padding: 15px 20px !important; /* کاهش */
+        }
+
+        /* نتیجه نهایی - بسیار کوچک‌تر شده */
+        .pdf-final-result {
+            background: linear-gradient(135deg, #e8f4fc 0%, #d4e7f7 100%);
+            border-radius: 8px !important; /* کاهش */
+            padding: 12px !important; /* کاهش */
+            margin: 8px 0 12px 0 !important; /* کاهش */
+            border: 1px solid var(--primary-color) !important; /* کاهش */
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+            page-break-inside: avoid !important;
+            break-inside: avoid !important;
+            min-height: auto !important;
+            max-height: 120px !important;
+        }
+
+        .pdf-final-result::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60px !important; /* کاهش */
+            height: 60px !important; /* کاهش */
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+            border-radius: 0 0 0 100%;
+        }
+
+        .pdf-final-title {
+            color: var(--primary-color);
+            font-size: 14px !important; /* کاهش */
+            margin-bottom: 5px !important; /* کاهش */
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px !important; /* کاهش */
+        }
+
+        .pdf-final-rating {
+            font-size: 22px !important; /* بسیار کوچک‌تر شده */
+            font-weight: 900;
+            color: var(--primary-color);
+            margin: 3px 0 !important; /* کاهش */
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            line-height: 1.2 !important;
+        }
+
+        .pdf-final-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px !important; /* کاهش */
+            background: var(--success-color);
+            color: white;
+            padding: 4px 10px !important; /* کاهش */
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 11px !important; /* کاهش */
+            margin: 5px 0 !important; /* کاهش */
+            box-shadow: 0 1px 4px rgba(40, 167, 69, 0.2);
+        }
+
+        /* کارت‌های اطلاعات - کوچک‌تر شده */
+        .pdf-cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important; /* کاهش */
+            gap: 12px !important; /* کاهش */
+            margin: 12px 0 !important; /* کاهش */
+            page-break-inside: avoid !important;
+            break-inside: avoid !important;
+        }
+
+        .pdf-info-card {
+            background: white;
+            border-radius: 6px !important; /* کاهش */
+            padding: 12px !important; /* کاهش */
+            border: 1px solid #e9ecef;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease;
+            page-break-inside: avoid !important;
+            break-inside: avoid !important;
+            margin-bottom: 12px !important; /* کاهش */
+        }
+
+        .pdf-info-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+
+        .pdf-info-title {
+            color: var(--primary-color);
+            font-size: 13px !important; /* کاهش */
+            margin-bottom: 10px !important; /* کاهش */
+            padding-bottom: 5px !important; /* کاهش */
+            border-bottom: 1px solid var(--primary-color) !important; /* کاهش */
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px !important; /* کاهش */
+        }
+
+        .pdf-info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0 !important; /* کاهش */
+            border-bottom: 1px dashed #dee2e6;
+            font-size: 11px !important; /* کاهش */
+        }
+
+        .pdf-info-item:last-child {
+            border-bottom: none;
+        }
+
+        .pdf-info-label {
+            font-weight: 600;
+            color: #495057;
+            min-width: 100px !important; /* کاهش */
+            font-size: 11px !important; /* کاهش */
+        }
+
+        .pdf-info-value {
+            font-weight: 700;
+            color: var(--primary-color);
+            text-align: left;
+            flex: 1;
+            font-size: 11px !important; /* کاهش */
+        }
+
+        /* نتایج ارزیابی */
+        .pdf-results-title {
+            color: var(--primary-color);
+            font-size: 14px !important; /* کاهش */
+            margin: 15px 0 8px !important; /* کاهش */
+            text-align: center;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px !important; /* کاهش */
+            page-break-inside: avoid !important;
+            break-inside: avoid !important;
+        }
+        
+        /* جدول نتایج - بسیار کوچک‌تر شده */
+        .pdf-results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 8px 0 12px 0 !important; /* کاهش */
+            font-size: 10px !important; /* کاهش */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            border-radius: 5px !important; /* کاهش */
+            overflow: hidden;
+            page-break-inside: avoid !important;
+            break-inside: avoid !important;
+        }
+
+        .pdf-results-table thead {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #0d4d63 100%);
+            color: white;
+        }
+
+        .pdf-results-table th {
+            padding: 8px 6px !important; /* کاهش */
+            text-align: center;
+            font-weight: 700;
+            font-size: 11px !important; /* کاهش */
+        }
+
+        .pdf-results-table td {
+            padding: 6px 4px !important; /* کاهش */
+            border: 1px solid #dee2e6;
+            text-align: center;
+            font-size: 10px !important; /* کاهش */
+        }
+
+        .pdf-results-table tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .pdf-results-table tbody tr:hover {
+            background-color: #e9ecef;
+        }
+
+        .pdf-status {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 3px 8px !important; /* کاهش */
+            border-radius: 12px !important; /* کاهش */
+            font-weight: 700;
+            font-size: 10px !important; /* کاهش */
+            display: inline-block;
+            min-width: 50px !important; /* کاهش */
+            box-shadow: 0 1px 3px rgba(40, 167, 69, 0.2);
+        }
+
+        .pdf-status.good {
+            background: linear-gradient(135deg, #ffc107, #fd7e14);
+        }
+
+        .pdf-score-badge {
+            display: inline-block;
+            width: 24px !important; /* کاهش */
+            height: 24px !important; /* کاهش */
+            line-height: 24px !important; /* کاهش */
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: white;
+            font-weight: 800;
+            font-size: 10px !important; /* کاهش */
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+
+        /* نمودار */
+        .pdf-chart-container {
+            background: white;
+            border-radius: 6px !important; /* کاهش */
+            padding: 12px !important; /* کاهش */
+            margin: 12px 0 !important; /* کاهش */
+            border: 1px solid #e9ecef;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            page-break-inside: avoid !important;
+            break-inside: avoid !important;
+        }
+
+        .pdf-chart-title {
+            color: var(--primary-color);
+            font-size: 14px !important; /* کاهش */
+            margin-bottom: 10px !important; /* کاهش */
+            font-weight: 700;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px !important; /* کاهش */
+        }
+
+        .pdf-bar-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 6px !important; /* کاهش */
+            margin-top: 8px !important; /* کاهش */
+        }
+
+        .pdf-chart-item {
+            display: flex;
+            align-items: center;
+            gap: 8px !important; /* کاهش */
+        }
+
+        .pdf-chart-label {
+            min-width: 140px !important; /* کاهش */
+            font-weight: 600;
+            color: #495057;
+            font-size: 10px !important; /* کاهش */
+        }
+
+        .pdf-chart-bar-container {
+            flex: 1;
+            height: 18px !important; /* کاهش */
+            background: #e9ecef;
+            border-radius: 9px !important; /* کاهش */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .pdf-chart-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #1a5f7a, #2c5aa0);
+            border-radius: 9px !important; /* کاهش */
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 0 8px !important; /* کاهش */
+            color: white;
+            font-weight: 700;
+            font-size: 9px !important; /* کاهش */
+        }
+
+        .pdf-chart-value {
+            min-width: 25px !important; /* کاهش */
+            text-align: left;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 10px !important; /* کاهش */
+        }
+
+        /* میانگین امتیاز - کوچک‌تر شده */
+        .pdf-average-score {
+            text-align: center;
+            margin: 12px 0 !important; /* کاهش */
+            padding: 12px !important; /* کاهش */
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 6px !important; /* کاهش */
+            border: 1px solid var(--primary-color) !important; /* کاهش */
+            page-break-inside: avoid !important;
+            break-inside: avoid !important;
+        }
+
+        .pdf-average-title {
+            color: var(--primary-color);
+            margin-bottom: 5px !important; /* کاهش */
+            font-size: 13px !important; /* کاهش */
+            font-weight: 700;
+        }
+
+        .pdf-average-value {
+            font-size: 20px !important; /* بسیار کوچک‌تر شده */
+            font-weight: 900;
+            color: var(--primary-color);
+        }
+
+        /* پیشنهادات - کوچک‌تر شده */
+        .pdf-suggestions-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 6px !important; /* کاهش */
+            padding: 12px !important; /* کاهش */
+            margin: 12px 0 !important; /* کاهش */
+            border: 1px solid var(--primary-color) !important; /* کاهش */
+            position: relative;
+            overflow: hidden;
+            page-break-inside: avoid !important;
+            break-inside: avoid !important;
+        }
+
+        .pdf-suggestions-box::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 3px !important; /* کاهش */
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .pdf-suggestions-title {
+            color: var(--primary-color);
+            font-size: 14px !important; /* کاهش */
+            margin-bottom: 8px !important; /* کاهش */
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px !important; /* کاهش */
+        }
+
+        .pdf-suggestions-content {
+            background: white;
+            border-radius: 4px !important; /* کاهش */
+            padding: 8px !important; /* کاهش */
+            border: 1px solid #dee2e6;
+            min-height: 60px !important; /* کاهش */
+            line-height: 1.5;
+            text-align: justify;
+            font-size: 11px !important; /* کاهش */
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.02);
+        }
+
+        /* جمع‌بندی - کوچک‌تر شده */
+        .pdf-conclusion {
+            background: linear-gradient(135deg, #e8f4fc 0%, #d4e7f7 100%);
+            border-radius: 6px !important; /* کاهش */
+            padding: 12px !important; /* کاهش */
+            margin: 12px 0 !important; /* کاهش */
+            text-align: center;
+            border: 1px dashed var(--primary-color) !important; /* کاهش */
+            page-break-inside: avoid !important;
+            break-inside: avoid !important;
+        }
+
+        .pdf-conclusion-title {
+            color: var(--primary-color);
+            font-size: 14px !important; /* کاهش */
+            margin-bottom: 6px !important; /* کاهش */
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px !important; /* کاهش */
+        }
+
+        .pdf-conclusion-text {
+            font-size: 12px !important; /* کاهش */
+            line-height: 1.5;
+            color: #495057;
+        }
+
+        /* فوتر PDF - کوچک‌تر شده */
+        .pdf-footer {
+            margin-top: 15px !important; /* کاهش */
+            padding-top: 10px !important; /* کاهش */
+            border-top: 1px solid var(--primary-color) !important; /* کاهش */
+            text-align: center;
+            color: #6c757d;
+            font-size: 10px !important; /* کاهش */
+            page-break-inside: avoid !important;
+            break-inside: avoid !important;
+        }
+
+        .pdf-footer-logo {
+            color: var(--primary-color);
+            font-weight: 800;
+            font-size: 13px !important; /* کاهش */
+            margin-bottom: 5px !important; /* کاهش */
+        }
+
+        /* کلاس‌های برای کنترل شکست صفحات */
+        .pdf-page-break {
+            page-break-before: always;
+            break-before: page;
+        }
+
+        /* جلوگیری از شکستن عناصر مهم */
+        .no-break {
+            page-break-inside: avoid !important;
+            break-inside: avoid !important;
+            -webkit-column-break-inside: avoid !important;
+        }
+
+        /* گروه‌بندی برای جلوگیری از شکستن */
+        .pdf-group {
+            page-break-inside: avoid !important;
+            break-inside: avoid !important;
+            margin-bottom: 15px !important;
+        }
+
+        /* هنگام خروجی PDF */
+        body.pdf-exporting .form-actions,
+        body.pdf-exporting .social-section,
+        body.pdf-exporting #message,
+        body.pdf-exporting #share-overlay,
+        body.pdf-exporting #share-pdf-menu,
+        body.pdf-exporting .section:not(.pdf-section),
+        body.pdf-exporting .header,
+        body.pdf-exporting .footer {
+            display: none !important;
+        }
+
+        body.pdf-exporting .pdf-section {
+            display: block !important;
+        }
+
+        body.pdf-exporting .pdf-summary {
+            display: block !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            border: none !important;
+            box-shadow: none !important;
+            border-radius: 0 !important;
+        }
+
+        /* ریسپانسیو */
+        @media (max-width: 1200px) { .container { max-width: 95%; } }
+        @media (max-width: 992px) {
+            .container { border-radius: 8px; }
+            .header { padding: 25px 20px; }
+            .header h1 { font-size: 28px; }
+            .section { padding: 25px 20px; }
+            .social-grid { grid-template-columns: repeat(2, 1fr); }
+            .btn { min-width: 180px; padding: 14px 25px; }
+            .logo-placeholder { width: 90px; height: 90px; }
+            .company-logo { width: 90px; height: 90px; }
+            .share-pdf-options { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .document-info { flex-direction: column; gap: 10px; }
+            .rating-table th, .rating-table td { padding: 12px 8px; }
+            .rating-label { width: 36px; height: 36px; line-height: 36px; font-size: 14px; }
+            .form-actions { flex-direction: column; align-items: center; }
+            .btn { width: 100%; max-width: 320px; }
+            .referral-options { flex-direction: column; }
+            .social-grid { grid-template-columns: 1fr; max-width: 350px; }
+            .logo-placeholder { width: 80px; height: 80px; }
+            .company-logo { width: 80px; height: 80px; }
+            .emoji { font-size: 24px; }
+            .share-pdf-menu { padding: 20px; }
+        }
+        @media (max-width: 480px) {
+            .header h1 { font-size: 24px; }
+            .section-title { font-size: 20px; }
+            .company-name-bold { font-size: 20px; }
+            .company-name-large { font-size: 22px; }
+            .logo-placeholder { width: 70px; height: 70px; }
+            .company-logo { width: 70px; height: 70px; }
+            .emoji { font-size: 20px; }
+        }
+
+        /* انیمیشن‌ها */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        .section { animation: fadeIn 0.6s ease-out; }
+
+        /* پیام‌ها */
+        .message {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            padding: 18px 30px;
+            border-radius: 10px;
+            color: white;
+            font-weight: 600;
+            z-index: 1000;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+            animation: slideIn 0.4s ease-out;
+            display: none;
+            max-width: 400px;
+            backdrop-filter: blur(10px);
+        }
+
+        @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+
+        .message.success { background: linear-gradient(135deg, rgba(40, 167, 69, 0.95), rgba(30, 126, 52, 0.95)); border-left: 5px solid #1e7e34; }
+        .message.error   { background: linear-gradient(135deg, rgba(220, 53, 69, 0.95), rgba(200, 35, 51, 0.95)); border-left: 5px solid #c82333; }
+        .message.info    { background: linear-gradient(135deg, rgba(26, 95, 122, 0.95), rgba(13, 77, 99, 0.95)); border-left: 5px solid #0d4d63; }
+    </style>
+</head>
+
+<body>
+<div class="container" id="form-container">
+    <!-- هدر -->
+    <div class="header">
+        <div class="header-content">
+            <div class="logo-container">
+                <div class="header-left">
+                    <!-- لوگوی اصلی -->
+                    <img src="20.jpg" alt="لوگوی شرکت احداث گستر نیروی پارس" class="company-logo" id="company-logo">
+                    
+                    <!-- لوگوی جایگزین (پلیدر) -->
+                    <div class="logo-placeholder" id="logo-placeholder">
+                        <div class="placeholder-text">EGNP<br>شرکت مهندسی</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header-title-container">
+                <h1>فرم نظرسنجی از مشتریان</h1>
+                <div class="document-info">
+                    <span><i class="fas fa-file-alt"></i> شماره سند: <strong>F-503-01</strong></span>
+                    <span><i class="fas fa-calendar-alt"></i> تاریخ: <strong id="current-date"></strong></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="company-info">
+            <p><span class="company-name-bold">شرکت مهندسی احداث گستر نیروی پارس</span></p>
+            <div class="welcome-text">
+                <p>با سلام و احترام</p>
+                <p>هدف اصلی شرکت مهندسی احداث گستر نیروی پارس کسب رضایت شما مشتری محترم است و استفاده از نظرات شما همواره ما را در رشد و ایجاد تغییرات مثبت، پویا نگاه می‌دارد. لذا خواهشمندیم با تکمیل فرم زیر، ما را از نظرات و پیشنهادات مفیدتان بهره‌مند نمایید.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- فرم اصلی -->
+    <form id="survey-form">
+        <!-- بخش‌های فرم اصلی -->
+        <div class="section">
+            <h2 class="section-title">مشخصات سفارش و مشتری</h2>
+
+            <div class="two-columns">
+                <!-- ستون اول: مشخصات سفارش -->
+                <div class="column">
+                    <h3 class="column-title">مشخصات سفارش</h3>
+
+                    <div class="form-group">
+                        <label class="form-label" for="product-type">نوع محصول سفارش داده شده:</label>
+                        <select class="product-select" id="product-type">
+                            <option value="">-- لطفا محصول را انتخاب کنید --</option>
+                            <option value="پایه روشنایی">پایه روشنایی</option>
+                            <option value="پایه پرچم">پایه پرچم</option>
+                            <option value="برج روشنایی">برج روشنایی</option>
+                            <option value="پایه تاشو">پایه تاشو</option>
+                            <option value="دکل استادیومی">دکل استادیومی</option>
+                            <option value="پایه دوربین">پایه دوربین</option>
+                            <option value="پایه مسیرنما">پایه مسیرنما</option>
+                            <option value="پایه های عراقی">پایه های عراقی</option>
+                            <option value="براکت و سرچراغی">براکت و سرچراغی</option>
+                            <option value="دکل صاعقه گیر">دکل صاعقه‌گیر</option>
+                            <option value="پایه های مدور">پایه‌های مدور</option>
+                            <option value="پایه های مشبک">پایه‌های مشبک</option>
+                            <option value="خدمات برش و خمکاری">خدمات برش و خمکاری</option>
+                            <option value="سایر">سایر</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="product-quantity">تعداد محصول سفارش داده شده:</label>
+                        <input type="number" class="form-control" id="product-quantity" min="1" placeholder="تعداد را وارد کنید">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="order-date">تاریخ سفارش:</label>
+                        <input type="text" class="form-control" id="order-date" placeholder="تاریخ سفارش را وارد کنید">
+                    </div>
+                </div>
+
+                <!-- ستون دوم: مشخصات مشتری (ایمیل حذف شده) -->
+                <div class="column">
+                    <h3 class="column-title">مشخصات مشتری</h3>
+
+                    <div class="form-group">
+                        <label class="form-label" for="customer-name">نام و نام خانوادگی: <span style="color: var(--danger-color)">*</span></label>
+                        <input type="text" class="form-control" id="customer-name" placeholder="نام و نام خانوادگی خود را وارد کنید" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="company-name">نام شرکت / سازمان:</label>
+                        <input type="text" class="form-control" id="company-name" placeholder="نام شرکت یا سازمان خود را وارد کنید">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="phone">تلفن همراه: <span style="color: var(--danger-color)">*</span></label>
+                        <input type="tel" class="form-control" id="phone" placeholder="09123456789" required>
+                        <small style="color: #6c757d; display: block; margin-top: 5px;">شماره باید با 09 شروع شده و 11 رقم باشد</small>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- نظرسنجی کیفیت خدمات -->
+        <div class="section">
+            <h2 class="section-title">نظرسنجی کیفیت محصولات و خدمات</h2>
+            <p style="margin-bottom: 20px; color: #6c757d; text-align: center; font-style: italic; font-size: 16px;">برای هر ردیف فقط یک مورد را انتخاب کنید.</p>
+
+            <div class="rating-table-container">
+                <table class="rating-table">
+                    <thead>
+                    <tr>
+                        <th style="width: 35%;">معیار ارزیابی</th>
+                        <th>خیلی ضعیف</th>
+                        <th>ضعیف</th>
+                        <th>متوسط</th>
+                        <th>خوب</th>
+                        <th>عالی</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>قیمت محصول</td>
+                        <td><div class="rating-option"><input type="radio" id="price-1" name="price" value="1"><label class="rating-label" for="price-1"></label></div></td>
+                        <td><div class="rating-option"><input type="radio" id="price-2" name="price" value="2"><label class="rating-label" for="price-2"></label></div></td>
+                        <td><div class="rating-option"><input type="radio" id="price-3" name="price" value="3"><label class="rating-label" for="price-3"></label></div></td>
+                        <td><div class="rating-option"><input type="radio" id="price-4" name="price" value="4"><label class="rating-label" for="price-4"></label></div></td>
+                        <td><div class="rating-option"><input type="radio" id="price-5" name="price" value="5"><label class="rating-label" for="price-5"></label></div></td>
+                    </tr>
+                    <tr>
+                        <td>کیفیت جوش و مونتاژ محصول</td>
+                        <td><div class="rating-option"><input type="radio" id="weld-1" name="weld" value="1"><label class="rating-label" for="weld-1"></label></div></td>
+                        <td><div class="rating-option"><input type="radio" id="weld-2" name="weld" value="2"><label class="rating-label" for="weld-2"></label></div></td>
+                        <td><div class="rating-option"><input type="radio" id="weld-3" name="weld" value="3"><label class="rating-label" for="weld-3"></label></div></td>
+                        <td><div class="rating-option"><input type="radio" id="weld-4" name="weld" value="4"><label class="rating-label" for="weld-4"></label></div></td>
+                        <td><div class="rating-option"><input type="radio" id="weld-5" name="weld" value="5"><label class="rating-label" for="weld-5"></label></div></td>
+                    </tr>
+                    <tr>
+                        <td>کیفیت پوشش محصول</td>
+                        <td><div class="rating-option"><input type="radio" id="coating-1" name="coating" value="1"><label class="rating-label" for="coating-1"></label></div></td>
+                        <td><div class="rating-option"><input type="radio" id="coating-2" name="coating" value="2"><label class="rating-label" for="coating-2"></label></div></td>
+                        <td><div class="rating-option"><input type="radio" id="coating-3" name="coating" value="3"><label class="rating-label" for="coating-3"></label></div></td>
+                        <td><div class="rating-option"><input type="radio" id="coating-4" name="coating" value="4"><label class="rating-label" for="coating-4"></label></div></td>
+                        <td><div class="rating-option"><input type="radio" id="coating-5" name="coating" value="5"><label class="rating-label" for="coating-5"></label></div></td>
+                    </tr>
+                    <tr>
+                        <td>زمانبندی تحویل محصول</td>
+                        <td><div class="rating-option"><input type="radio" id="delivery-1" name="delivery" value="1"><label class="rating-label" for="delivery-1"></label></div></td>
+                        <td><div class="rating-option"><input type="radio" id="delivery-2" name="delivery" value="2"><label class="rating-label" for="delivery-2"></label></div></td>
+                        <td><div class="rating-option"><input type="radio" id="delivery-3" name="delivery" value="3"><label class="rating-label" for="delivery-3"></label></div></td>
+                        <td><div class="rating-option"><input type="radio" id="delivery-4" name="delivery" value="4"><label class="rating-label" for="delivery-4"></label></div></td>
+                        <td><div class="rating-option"><input type="radio" id="delivery-5" name="delivery" value="5"><label class="rating-label" for="delivery-5"></label></div></td>
+                    </tr>
+                    <tr>
+                        <td>کیفیت بارگیری و بسته بندی</td>
+                        <td><div class="rating-option"><input type="radio" id="packaging-1" name="packaging" value="1"><label class="rating-label" for="packaging-1"></label></div></td>
+                        <td><div class="rating-option"><input type="radio" id="packaging-2" name="packaging" value="2"><label class="rating-label" for="packaging-2"></label></div></td>
+                        <td><div class="rating-option"><input type="radio" id="packaging-3" name="packaging" value="3"><label class="rating-label" for="packaging-3"></label></div></td>
+                        <td><div class="rating-option"><input type="radio" id="packaging-4" name="packaging" value="4"><label class="rating-label" for="packaging-4"></label></div></td>
+                        <td><div class="rating-option"><input type="radio" id="packaging-5" name="packaging" value="5"><label class="rating-label" for="packaging-5"></label></div></td>
+                    </tr>
+                    <tr>
+                        <td>سرعت پاسخگویی پرسنل</td>
+                        <td><div class="rating-option"><input type="radio" id="response-1" name="response" value="1"><label class="rating-label" for="response-1"></label></div></td>
+                        <td><div class="rating-option"><input type="radio" id="response-2" name="response" value="2"><label class="rating-label" for="response-2"></label></div></td>
+                        <td><div class="rating-option"><input type="radio" id="response-3" name="response" value="3"><label class="rating-label" for="response-3"></label></div></td>
+                        <td><div class="rating-option"><input type="radio" id="response-4" name="response" value="4"><label class="rating-label" for="response-4"></label></div></td>
+                        <td><div class="rating-option"><input type="radio" id="response-5" name="response" value="5"><label class="rating-label" for="response-5"></label></div></td>
+                    </tr>
+                    <tr>
+                        <td>نحوه بیان و برخورد پرسنل</td>
+                        <td><div class="rating-option"><input type="radio" id="behavior-1" name="behavior" value="1"><label class="rating-label" for="behavior-1"></label></div></td>
+                        <td><div class="rating-option"><input type="radio" id="behavior-2" name="behavior" value="2"><label class="rating-label" for="behavior-2"></label></div></td>
+                        <td><div class="rating-option"><input type="radio" id="behavior-3" name="behavior" value="3"><label class="rating-label" for="behavior-3"></label></div></td>
+                        <td><div class="rating-option"><input type="radio" id="behavior-4" name="behavior" value="4"><label class="rating-label" for="behavior-4"></label></div></td>
+                        <td><div class="rating-option"><input type="radio" id="behavior-5" name="behavior" value="5"><label class="rating-label" for="behavior-5"></label></div></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="rating-percentage-container">
+                <div class="overall-rating">
+                    <div class="emoji-container" id="rating-emoji-container"></div>
+                    <div class="rating-scale-label">در مجموع به شرکت ما چه نمره‌ای می‌دهید؟</div>
+                    <div class="rating-slider-container">
+                        <input type="range" min="0" max="20" value="20" class="rating-slider" id="overall-rating-slider">
+                        <div class="rating-labels">
+                            <span>0</span><span>5</span><span>10</span><span>15</span><span>20</span>
+                        </div>
+                        <div class="rating-value"><span id="rating-display">20</span>/20</div>
+                    </div>
+                </div>
+
+                <div class="referral-percentage">
+                    <div class="emoji-container" id="percentage-emoji-container"></div>
+                    <div class="percentage-label">چند درصد احتمال دارد ما را به دیگران معرفی کنید؟</div>
+                    <div class="percentage-slider-container">
+                        <input type="range" min="0" max="100" value="80" class="percentage-slider" id="referral-percentage">
+                        <div class="percentage-labels">
+                            <span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span>
+                        </div>
+                        <div class="percentage-value"><span id="percentage-display">80</span>%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- نحوه آشنایی -->
+        <div class="section">
+            <h2 class="section-title">نحوه آشنایی با ما</h2>
+
+            <div class="referral-options">
+                <div class="referral-option">
+                    <input type="radio" id="referral-website" name="referral" value="website">
+                    <label class="referral-label" for="referral-website">
+                        <i class="fas fa-globe referral-icon website"></i>
+                        <span>وب سایت</span>
+                    </label>
+                </div>
+                <div class="referral-option">
+                    <input type="radio" id="referral-instagram" name="referral" value="instagram">
+                    <label class="referral-label" for="referral-instagram">
+                        <i class="fab fa-instagram referral-icon instagram"></i>
+                        <span>اینستاگرام</span>
+                    </label>
+                </div>
+                <div class="referral-option">
+                    <input type="radio" id="referral-search" name="referral" value="search">
+                    <label class="referral-label" for="referral-search">
+                        <i class="fas fa-search referral-icon search"></i>
+                        <span>جستجو اینترنتی</span>
+                    </label>
+                </div>
+                <div class="referral-option">
+                    <input type="radio" id="referral-others" name="referral" value="others">
+                    <label class="referral-label" for="referral-others">
+                        <i class="fas fa-users referral-icon others"></i>
+                        <span>توسط دیگران</span>
+                    </label>
+                </div>
+                <div class="referral-option">
+                    <input type="radio" id="referral-exhibition" name="referral" value="exhibition">
+                    <label class="referral-label" for="referral-exhibition">
+                        <i class="fas fa-building referral-icon exhibition"></i>
+                        <span>نمایشگاه</span>
+                    </label>
+                </div>
+                <div class="referral-option">
+                    <input type="radio" id="referral-other" name="referral" value="other">
+                    <label class="referral-label" for="referral-other">
+                        <i class="fas fa-ellipsis-h referral-icon other"></i>
+                        <span>سایر</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- پیشنهادات -->
+        <div class="section">
+            <h2 class="section-title">پیشنهادات و موارد قابل بهبود</h2>
+
+            <div class="form-group">
+                <label class="form-label" for="suggestions">چه مواردی را برای بهبود خدمات و محصولات پیشنهاد می‌کنید؟</label>
+                <textarea class="form-control" id="suggestions" rows="5" placeholder="پیشنهادات خود را برای بهبود خدمات شرکت وارد کنید"></textarea>
+            </div>
+        </div>
+
+        <!-- ✅ بخش PDF مخصوص - طراحی زیبا و پیشرفته - بهبود یافته -->
+        <div class="pdf-section" id="pdf-content">
+            <div class="pdf-summary">
+                <!-- هدر PDF -->
+                <div class="pdf-header">
+                    <div class="pdf-header-content">
+                        <div class="pdf-title">خلاصه نتایج نظرسنجی مشتریان</div>
+                        <div class="pdf-subtitle">شرکت مهندسی احداث گستر نیروی پارس</div>
+                        <div class="pdf-meta-info">
+                            <span><i class="fas fa-calendar-alt"></i> تاریخ گزارش: <strong id="pdf-report-date"></strong></span>
+                            <span><i class="fas fa-hashtag"></i> شماره پیگیری: <strong id="pdf-tracking-code">TRK-000000</strong></span>
+                            <span><i class="fas fa-clock"></i> زمان تولید: <strong id="pdf-generation-time"></strong></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- محتوای اصلی PDF -->
+                <div class="pdf-main-content">
+                    <!-- گروه ۱: نتیجه نهایی + کارت‌های اطلاعات -->
+                    <div class="pdf-group">
+                        <!-- نتیجه نهایی - بسیار کوچک شده -->
+                        <div class="pdf-final-result no-break">
+                            <div class="pdf-final-title">
+                                <i class="fas fa-trophy"></i> امتیاز کلی شرکت
+                            </div>
+                            <div class="pdf-final-rating" id="pdf-final-rating">20/20</div>
+                            <div class="pdf-final-badge">
+                                <i class="fas fa-star"></i>
+                                <span id="pdf-final-percentage">80% احتمال معرفی</span>
+                            </div>
+                            <div style="margin-top: 8px; font-size: 11px; color: #495057;">
+                                <i class="fas fa-check-circle" style="color: #28a745;"></i>
+                                سطح رضایت: <strong>عالی</strong> | 
+                                وضعیت: <strong>رضایت کامل</strong>
+                            </div>
+                        </div>
+
+                        <!-- کارت‌های اطلاعات -->
+                        <div class="pdf-cards-container no-break">
+                            <!-- کارت اطلاعات سفارش -->
+                            <div class="pdf-info-card">
+                                <div class="pdf-info-title">
+                                    <i class="fas fa-shopping-cart"></i> اطلاعات سفارش
+                                </div>
+                                <div class="pdf-info-item">
+                                    <span class="pdf-info-label">نوع محصول:</span>
+                                    <span class="pdf-info-value" id="pdf-product-type">ثبت نشده</span>
+                                </div>
+                                <div class="pdf-info-item">
+                                    <span class="pdf-info-label">تعداد محصول:</span>
+                                    <span class="pdf-info-value" id="pdf-product-quantity">ثبت نشده</span>
+                                </div>
+                                <div class="pdf-info-item">
+                                    <span class="pdf-info-label">تاریخ سفارش:</span>
+                                    <span class="pdf-info-value" id="pdf-order-date">ثبت نشده</span>
+                                </div>
+                                <div class="pdf-info-item">
+                                    <span class="pdf-info-label">نحوه آشنایی:</span>
+                                    <span class="pdf-info-value" id="pdf-referral-method">ثبت نشده</span>
+                                </div>
+                            </div>
+
+                            <!-- کارت اطلاعات مشتری (ایمیل حذف شده) -->
+                            <div class="pdf-info-card">
+                                <div class="pdf-info-title">
+                                    <i class="fas fa-user-circle"></i> اطلاعات مشتری
+                                </div>
+                                <div class="pdf-info-item">
+                                    <span class="pdf-info-label">نام و نام خانوادگی:</span>
+                                    <span class="pdf-info-value" id="pdf-customer-name">ثبت نشده</span>
+                                </div>
+                                <div class="pdf-info-item">
+                                    <span class="pdf-info-label">نام شرکت/سازمان:</span>
+                                    <span class="pdf-info-value" id="pdf-company-name">ثبت نشده</span>
+                                </div>
+                                <div class="pdf-info-item">
+                                    <span class="pdf-info-label">تلفن همراه:</span>
+                                    <span class="pdf-info-value" id="pdf-phone">ثبت نشده</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- گروه ۲: نتایج ارزیابی + نمودار -->
+                    <div class="pdf-group">
+                        <!-- نتایج ارزیابی -->
+                        <div class="pdf-results-title no-break">
+                            <i class="fas fa-chart-bar"></i> نتایج ارزیابی معیارها (از 5)
+                        </div>
+                        
+                        <table class="pdf-results-table no-break">
+                            <thead>
+                                <tr>
+                                    <th>وضعیت</th>
+                                    <th>امتیاز</th>
+                                    <th>معیار ارزیابی</th>
+                                    <th>توضیحات</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="pdf-status">عالی</span></td>
+                                    <td><span class="pdf-score-badge" id="pdf-price-score">4</span></td>
+                                    <td>قیمت محصول</td>
+                                    <td>مناسب و رقابتی</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="pdf-status">عالی</span></td>
+                                    <td><span class="pdf-score-badge" id="pdf-weld-score">4</span></td>
+                                    <td>کیفیت جوش و مونتاژ</td>
+                                    <td>مستحکم و باکیفیت</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="pdf-status">عالی</span></td>
+                                    <td><span class="pdf-score-badge" id="pdf-coating-score">4</span></td>
+                                    <td>کیفیت پوشش محصول</td>
+                                    <td>یکنواخت و با دوام</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="pdf-status">عالی</span></td>
+                                    <td><span class="pdf-score-badge" id="pdf-delivery-score">4</span></td>
+                                    <td>زمانبندی تحویل</td>
+                                    <td>منظم و به موقع</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="pdf-status">عالی</span></td>
+                                    <td><span class="pdf-score-badge" id="pdf-packaging-score">4</span></td>
+                                    <td>کیفیت بسته‌بندی</td>
+                                    <td>ایمن و استاندارد</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="pdf-status">عالی</span></td>
+                                    <td><span class="pdf-score-badge" id="pdf-response-score">4</span></td>
+                                    <td>سرعت پاسخگویی</td>
+                                    <td>سریع و مؤثر</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="pdf-status">عالی</span></td>
+                                    <td><span class="pdf-score-badge" id="pdf-behavior-score">4</span></td>
+                                    <td>نحوه برخورد پرسنل</td>
+                                    <td>محترمانه و حرفه‌ای</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- نمودار میله‌ای -->
+                        <div class="pdf-chart-container no-break">
+                            <div class="pdf-chart-title">
+                                <i class="fas fa-chart-line"></i> نمودار مقایسه‌ای امتیازها
+                            </div>
+                            <div class="pdf-bar-chart" id="pdf-bar-chart">
+                                <!-- بارچارت به صورت دینامیک ایجاد می‌شود -->
+                            </div>
+                        </div>
+
+                        <!-- میانگین امتیاز -->
+                        <div class="pdf-average-score no-break">
+                            <div class="pdf-average-title">میانگین امتیاز معیارها</div>
+                            <div class="pdf-average-value" id="pdf-average-score">4.0 از 5</div>
+                            <div style="font-size: 11px; color: #6c757d; margin-top: 4px;">(مبتنی بر 7 معیار ارزیابی)</div>
+                        </div>
+                    </div>
+
+                    <!-- گروه ۳: پیشنهادات + نتیجه‌گیری -->
+                    <div class="pdf-group">
+                        <!-- پیشنهادات مشتری -->
+                        <div class="pdf-suggestions-box no-break">
+                            <div class="pdf-suggestions-title">
+                                <i class="fas fa-lightbulb"></i> پیشنهادات و نظرات مشتری
+                            </div>
+                            <div class="pdf-suggestions-content" id="pdf-suggestions">
+                                بدون پیشنهاد - مشتری هیچ پیشنهادی ارائه نداده است.
+                            </div>
+                        </div>
+
+                        <!-- نتیجه‌گیری -->
+                        <div class="pdf-conclusion no-break">
+                            <div class="pdf-conclusion-title">
+                                <i class="fas fa-clipboard-check"></i> جمع‌بندی نهایی
+                            </div>
+                            <div class="pdf-conclusion-text">
+                                بر اساس ارزیابی انجام شده، مشتری از کلیه جنبه‌های خدمات و محصولات شرکت <strong>رضایت کامل</strong> داشته و 
+                                تمایل بالایی برای معرفی شرکت به دیگران نشان داده است. سطح رضایت در تمامی معیارها در حد <strong>عالی</strong> ارزیابی شده است.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- فوتر PDF -->
+                    <div class="pdf-footer no-break">
+                        <div class="pdf-footer-logo">شرکت مهندسی احداث گستر نیروی پارس</div>
+                        <div style="font-size: 11px;">تلفن: ۰۲۱-۴۳۰۰۰۴۳۸ | وب‌سایت: www.egnpco.com | اینستاگرام: @ehdasgostar</div>
+                        <div style="margin-top: 8px; font-size: 9px; color: #adb5bd;">
+                            این گزارش به صورت خودکار توسط سیستم نظرسنجی مشتریان تولید شده است.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ارتباط با ما -->
+        <div class="social-section">
+            <h2 class="social-title"><i class="fas fa-share-alt"></i> ارتباط با ما</h2>
+
+            <div class="social-grid">
+                <div class="social-card">
+                    <div class="social-icon website"><i class="fas fa-globe"></i></div>
+                    <h3>وب سایت شرکت</h3>
+                    <p>مشاهده اطلاعات، محصولات و خدمات شرکت</p>
+                    <a href="https://www.egnpco.com" target="_blank" class="social-btn website">
+                        <i class="fas fa-external-link-alt"></i><span>مشاهده سایت</span>
+                    </a>
+                </div>
+
+                <div class="social-card">
+                    <div class="social-icon instagram"><i class="fab fa-instagram"></i></div>
+                    <h3>صفحه اینستاگرام</h3>
+                    <p>مشاهده آخرین اخبار و فعالیت‌های شرکت</p>
+                    <a href="https://www.instagram.com/ehdasgostar?igsh=enF3cXhlbzZpNmJo" target="_blank" class="social-btn instagram">
+                        <i class="fab fa-instagram"></i><span>مشاهده صفحه</span>
+                    </a>
+                </div>
+
+                <div class="social-card">
+                    <div class="social-icon whatsapp"><i class="fab fa-whatsapp"></i></div>
+                    <h3>پشتیبانی واتساپ</h3>
+                    <p>ارتباط مستقیم با بخش پشتیبانی</p>
+                    <button type="button" id="whatsapp-btn-new" class="social-btn whatsapp">
+                        <i class="fab fa-whatsapp"></i><span>ارتباط در واتساپ</span>
+                    </button>
+                </div>
+
+                <div class="social-card">
+                    <div class="social-icon share"><i class="fas fa-share-alt"></i></div>
+                    <h3>اشتراک گذاری فرم</h3>
+                    <p>این فرم را با دیگران به اشتراک بگذارید</p>
+                    <button type="button" id="share-btn-new" class="social-btn share">
+                        <i class="fas fa-share"></i><span>اشتراک گذاری</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- دکمه‌ها -->
+        <div class="form-actions">
+            <button type="submit" class="btn btn-save" id="submit-btn">
+                <i class="fas fa-save"></i><span>ذخیره و ارسال فرم</span>
+            </button>
+
+            <button type="button" id="reset-btn" class="btn btn-reset">
+                <i class="fas fa-redo"></i><span>بازنشانی فرم</span>
+            </button>
+
+            <button type="button" id="share-pdf-btn" class="btn btn-whatsapp">
+                <i class="fas fa-paper-plane"></i><span>ارسال فرم پر شده</span>
+            </button>
+
+            <button type="button" id="download-pdf-btn" class="btn btn-pdf">
+                <i class="fas fa-file-pdf"></i><span>دانلود PDF فرم</span>
+            </button>
+        </div>
+    </form>
+
+    <!-- فوتر -->
+    <div class="footer">
+        <p>کلیه حقوق این فرم متعلق به شرکت مهندسی احداث گستر نیروی پارس می‌باشد.</p>
+        <p>آدرس: تهران، خیابان گاندی جنوبی، کوچه یکم، پلاک ۱۳، طبقه ۵، واحد ۹</p>
+        <p>تلفن: ۰۲۱-۴۳۰۰۰۴۳۸ | ایمیل: info@egnpco.com</p>
+        <div class="copyright">تمام حقوق محفوظ است © </div>
+    </div>
+</div>
+
+<!-- منوی اشتراک گذاری PDF -->
+<div class="overlay" id="share-overlay"></div>
+<div class="share-pdf-menu" id="share-pdf-menu">
+    <h3><i class="fas fa-share-alt"></i> انتخاب روش ارسال فرم</h3>
+    <div class="share-pdf-options">
+        <div class="share-pdf-option" id="share-whatsapp">
+            <div class="share-pdf-icon whatsapp"><i class="fab fa-whatsapp"></i></div>
+            <span>ارسال در واتساپ</span>
+        </div>
+        <div class="share-pdf-option" id="share-telegram">
+            <div class="share-pdf-icon telegram"><i class="fab fa-telegram"></i></div>
+            <span>ارسال در تلگرام</span>
+        </div>
+        <div class="share-pdf-option" id="share-email">
+            <div class="share-pdf-icon email"><i class="fas fa-envelope"></i></div>
+            <span>ارسال ایمیل</span>
+        </div>
+        <div class="share-pdf-option" id="share-download">
+            <div class="share-pdf-icon download"><i class="fas fa-download"></i></div>
+            <span>دانلود PDF</span>
+        </div>
+    </div>
+    <button class="close-share-menu" id="close-share-menu">بستن</button>
+</div>
+
+<!-- پیام -->
+<div id="message" class="message"></div>
+
+<script>
+    // تاریخ جاری فارسی
+    function getCurrentPersianDate() {
+        const today = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        return today.toLocaleDateString('fa-IR', options);
+    }
+
+    // زمان جاری
+    function getCurrentTime() {
+        const now = new Date();
+        return now.toLocaleTimeString('fa-IR', { hour: '2-digit', minute: '2-digit' });
+    }
+
+    document.getElementById('current-date').textContent = getCurrentPersianDate();
+
+    // نمایش پیام
+    function showMessage(text, type) {
+        const messageEl = document.getElementById('message');
+        messageEl.textContent = text;
+        messageEl.className = `message ${type}`;
+        messageEl.style.display = 'block';
+        setTimeout(() => { messageEl.style.display = 'none'; }, 5000);
+    }
+
+    // اعتبارسنجی شماره تلفن
+    function validatePhone(phone) {
+        const phoneRegex = /^09[0-9]{9}$/;
+        return phoneRegex.test(phone.replace(/\D/g, ''));
+    }
+
+    // رنگ امتیاز کلی
+    function updateRatingColor(value) {
+        const v = Number(value);
+        let color;
+        if (v <= 5) color = '#dc3545';
+        else if (v <= 10) color = '#ff6b35';
+        else if (v <= 15) color = '#ffc107';
+        else color = '#28a745';
+        const el = document.getElementById('rating-display');
+        if (el) el.style.color = color;
+    }
+
+    // ایموجی‌ها
+    function createRatingEmojis(value) {
+        const ratingEmojiContainer = document.getElementById('rating-emoji-container');
+        if (!ratingEmojiContainer) return;
+        ratingEmojiContainer.innerHTML = '';
+
+        let emojis = [];
+        let count = 0;
+
+        const v = Number(value);
+        if (v >= 16) { emojis = ['❤️','😍','🤩','😘','🥰','👍','🌟','🎉','💯','🔥']; count = 8; }
+        else if (v >= 11) { emojis = ['😊','🙂','😄','👍','⭐','👌','💪','✨','😁','🤗']; count = 6; }
+        else if (v >= 6) { emojis = ['😐','🤔','🧐','😶','🙄','😑','💭','🤨','😏','😌']; count = 4; }
+        else { emojis = ['😔','😞','😟','😕','🙁','😥','😢','😭','😓','😰']; count = 3; }
+
+        for (let i = 0; i < count; i++) {
+            setTimeout(() => {
+                const emoji = document.createElement('div');
+                emoji.className = 'emoji';
+                emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                emoji.style.left = (Math.random() * 90 + 5) + '%';
+                emoji.style.animationDelay = (Math.random() * 0.5) + 's';
+                ratingEmojiContainer.appendChild(emoji);
+                setTimeout(() => { if (emoji.parentNode) emoji.remove(); }, 3000);
+            }, i * 300);
+        }
+    }
+
+    function createPercentageEmojis(value) {
+        const percentageEmojiContainer = document.getElementById('percentage-emoji-container');
+        if (!percentageEmojiContainer) return;
+        percentageEmojiContainer.innerHTML = '';
+
+        let emojis = [];
+        let count = 0;
+        const v = Number(value);
+
+        if (v >= 80) { emojis = ['🤝','🚀','💯','🎯','🏆','🥇','👑','💎','✨','🌟']; count = 8; }
+        else if (v >= 50) { emojis = ['👍','👌','✌️','🤙','🤘','👊','🙏','💪','🤝','👏']; count = 6; }
+        else if (v >= 20) { emojis = ['🤔','🧐','🤨','😐','😶','😑','🙄','😏','😌','💭']; count = 4; }
+        else { emojis = ['😔','😞','😕','🙁','☹️','😣','😖','😫','😩','🥺']; count = 3; }
+
+        for (let i = 0; i < count; i++) {
+            setTimeout(() => {
+                const emoji = document.createElement('div');
+                emoji.className = 'emoji';
+                emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                emoji.style.left = (Math.random() * 90 + 5) + '%';
+                emoji.style.animationDelay = (Math.random() * 0.5) + 's';
+                percentageEmojiContainer.appendChild(emoji);
+                setTimeout(() => { if (emoji.parentNode) emoji.remove(); }, 3000);
+            }, i * 300);
+        }
+    }
+
+    // جمع‌آوری اطلاعات فرم
+    function collectFormData() {
+        return {
+            customerName: document.getElementById('customer-name')?.value.trim(),
+            phone: document.getElementById('phone')?.value.trim(),
+            company: document.getElementById('company-name')?.value.trim(),
+            productType: document.getElementById('product-type')?.value,
+            productQuantity: document.getElementById('product-quantity')?.value,
+            orderDate: document.getElementById('order-date')?.value.trim(),
+            overallRating: document.getElementById('rating-display')?.textContent,
+            referralPercentage: document.getElementById('percentage-display')?.textContent,
+            referral: document.querySelector('input[name="referral"]:checked')?.value,
+            suggestions: document.getElementById('suggestions')?.value.trim(),
+            ratings: {
+                price: document.querySelector('input[name="price"]:checked')?.value,
+                weld: document.querySelector('input[name="weld"]:checked')?.value,
+                coating: document.querySelector('input[name="coating"]:checked')?.value,
+                delivery: document.querySelector('input[name="delivery"]:checked')?.value,
+                packaging: document.querySelector('input[name="packaging"]:checked')?.value,
+                response: document.querySelector('input[name="response"]:checked')?.value,
+                behavior: document.querySelector('input[name="behavior"]:checked')?.value
+            },
+            submissionDate: new Date().toISOString(),
+            submissionDatePersian: getCurrentPersianDate()
+        };
+    }
+
+    // به‌روزرسانی بخش PDF با طراحی پیشرفته
+    function updatePDFContent(formData, trackingCode = '') {
+        // تاریخ و زمان گزارش
+        document.getElementById('pdf-report-date').textContent = getCurrentPersianDate();
+        document.getElementById('pdf-generation-time').textContent = getCurrentTime();
+        document.getElementById('pdf-tracking-code').textContent = trackingCode || 'TRK-' + Date.now().toString().slice(-8);
+        
+        // امتیاز کلی - بسیار کوچک شده
+        document.getElementById('pdf-final-rating').textContent = (formData.overallRating || '20') + '/20';
+        document.getElementById('pdf-final-percentage').textContent = (formData.referralPercentage || '80') + '% احتمال معرفی';
+        
+        // اطلاعات سفارش
+        document.getElementById('pdf-product-type').textContent = formData.productType || 'ثبت نشده';
+        document.getElementById('pdf-product-quantity').textContent = formData.productQuantity || 'ثبت نشده';
+        document.getElementById('pdf-order-date').textContent = formData.orderDate || 'ثبت نشده';
+        
+        // نحوه آشنایی
+        const referralMap = {
+            'website': 'وب سایت شرکت',
+            'instagram': 'صفحه اینستاگرام',
+            'search': 'جستجوی اینترنتی',
+            'others': 'معرفی توسط دیگران',
+            'exhibition': 'شرکت در نمایشگاه',
+            'other': 'سایر روش‌ها'
+        };
+        const referralText = referralMap[formData.referral] || 'ثبت نشده';
+        document.getElementById('pdf-referral-method').textContent = referralText;
+        
+        // اطلاعات مشتری (ایمیل حذف شده)
+        document.getElementById('pdf-customer-name').textContent = formData.customerName || 'ثبت نشده';
+        document.getElementById('pdf-company-name').textContent = formData.company || 'ثبت نشده';
+        document.getElementById('pdf-phone').textContent = formData.phone || 'ثبت نشده';
+        
+        // امتیازهای معیارها
+        const ratings = formData.ratings || {};
+        const ratingLabels = [
+            { id: 'pdf-price-score', key: 'price', default: 4 },
+            { id: 'pdf-weld-score', key: 'weld', default: 4 },
+            { id: 'pdf-coating-score', key: 'coating', default: 4 },
+            { id: 'pdf-delivery-score', key: 'delivery', default: 4 },
+            { id: 'pdf-packaging-score', key: 'packaging', default: 4 },
+            { id: 'pdf-response-score', key: 'response', default: 4 },
+            { id: 'pdf-behavior-score', key: 'behavior', default: 4 }
+        ];
+        
+        let totalRating = 0;
+        let ratedCount = 0;
+        
+        // به‌روزرسانی امتیازها
+        ratingLabels.forEach(item => {
+            const value = ratings[item.key];
+            const ratingNum = parseInt(value || item.default);
+            document.getElementById(item.id).textContent = ratingNum;
+            
+            // به‌روزرسانی وضعیت بر اساس امتیاز
+            const statusElement = document.querySelector(`#${item.id}`).closest('tr').querySelector('.pdf-status');
+            if (statusElement) {
+                if (ratingNum >= 4.5) {
+                    statusElement.textContent = 'عالی';
+                    statusElement.style.background = 'linear-gradient(135deg, #28a745, #20c997)';
+                } else if (ratingNum >= 3.5) {
+                    statusElement.textContent = 'خوب';
+                    statusElement.style.background = 'linear-gradient(135deg, #ffc107, #fd7e14)';
+                } else if (ratingNum >= 2.5) {
+                    statusElement.textContent = 'متوسط';
+                    statusElement.style.background = 'linear-gradient(135deg, #ff6b35, #fd7e14)';
+                } else {
+                    statusElement.textContent = 'نیاز به بهبود';
+                    statusElement.style.background = 'linear-gradient(135deg, #dc3545, #ff6b35)';
+                }
+            }
+            
+            if (ratingNum > 0) {
+                totalRating += ratingNum;
+                ratedCount++;
+            }
+        });
+        
+        // محاسبه میانگین
+        const averageRating = ratedCount > 0 ? (totalRating / ratedCount).toFixed(1) : '4.0';
+        document.getElementById('pdf-average-score').textContent = averageRating + ' از 5';
+        
+        // ایجاد نمودار میله‌ای
+        createPDFBarChart(ratings);
+        
+        // پیشنهادات
+        const suggestions = formData.suggestions?.trim() || 'بدون پیشنهاد - مشتری هیچ پیشنهادی ارائه نداده است.';
+        document.getElementById('pdf-suggestions').textContent = suggestions;
+    }
+
+    // ایجاد نمودار میله‌ای برای PDF
+    function createPDFBarChart(ratings) {
+        const chartData = [
+            { label: 'قیمت محصول', key: 'price', value: parseInt(ratings.price || 4) },
+            { label: 'کیفیت جوش و مونتاژ', key: 'weld', value: parseInt(ratings.weld || 4) },
+            { label: 'کیفیت پوشش محصول', key: 'coating', value: parseInt(ratings.coating || 4) },
+            { label: 'زمانبندی تحویل', key: 'delivery', value: parseInt(ratings.delivery || 4) },
+            { label: 'کیفیت بسته‌بندی', key: 'packaging', value: parseInt(ratings.packaging || 4) },
+            { label: 'سرعت پاسخگویی', key: 'response', value: parseInt(ratings.response || 4) },
+            { label: 'نحوه برخورد پرسنل', key: 'behavior', value: parseInt(ratings.behavior || 4) }
+        ];
+        
+        const chartContainer = document.getElementById('pdf-bar-chart');
+        chartContainer.innerHTML = '';
+        
+        chartData.forEach(item => {
+            const percentage = (item.value / 5) * 100;
+            const color = getScoreColor(item.value);
+            
+            const chartItem = document.createElement('div');
+            chartItem.className = 'pdf-chart-item';
+            chartItem.innerHTML = `
+                <div class="pdf-chart-label">${item.label}</div>
+                <div class="pdf-chart-bar-container">
+                    <div class="pdf-chart-bar" style="width: ${percentage}%; background: ${color};">
+                        ${item.value}/5
+                    </div>
+                </div>
+                <div class="pdf-chart-value">${item.value}</div>
+            `;
+            chartContainer.appendChild(chartItem);
+        });
+    }
+
+    // رنگ بر اساس امتیاز
+    function getScoreColor(score) {
+        if (score >= 4.5) return 'linear-gradient(90deg, #28a745, #20c997)';
+        if (score >= 3.5) return 'linear-gradient(90deg, #ffc107, #fd7e14)';
+        if (score >= 2.5) return 'linear-gradient(90deg, #ff6b35, #fd7e14)';
+        return 'linear-gradient(90deg, #dc3545, #ff6b35)';
+    }
+
+    // ===================== PDF Export =====================
+    function downloadBlob(blob, filename) {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(() => {
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }, 200);
+    }
+
+    function buildPdfFileName() {
+        const customerName = (document.getElementById('customer-name')?.value || '').trim();
+        const clean = customerName.replace(/[^\u0600-\u06FF\sA-Za-z0-9]/g, '').replace(/\s+/g, '_');
+        const dateFa = new Date().toLocaleDateString('fa-IR').replace(/\//g, '-');
+        return `گزارش_نظرسنجی_${clean || 'مشتری'}_${dateFa}.pdf`;
+    }
+
+    async function exportPdfFromPage({ download = false, trackingCode = '' } = {}) {
+        const formData = collectFormData();
+        updatePDFContent(formData, trackingCode);
+
+        const filename = buildPdfFileName();
+        const pdfContent = document.getElementById('pdf-content');
+
+        document.body.classList.add('pdf-exporting');
+        await new Promise(r => setTimeout(r, 200));
+
+        const opt = {
+            margin:       [5, 5, 5, 5], // کاهش حاشیه‌ها
+            filename:     filename,
+            image:        { type: 'jpeg', quality: 0.95 },
+            html2canvas:  {
+                scale: 2,
+                useCORS: true,
+                allowTaint: true,
+                backgroundColor: '#ffffff',
+                scrollY: 0,
+                logging: false,
+                onclone: function(clonedDoc) {
+                    clonedDoc.body.classList.add('pdf-exporting');
+                    // تنظیمات اضافی برای پرینت
+                    const elements = clonedDoc.querySelectorAll('.no-break, .pdf-group, table, .pdf-info-card');
+                    elements.forEach(el => {
+                        el.style.pageBreakInside = 'avoid';
+                        el.style.breakInside = 'avoid';
+                    });
+                }
+            },
+            jsPDF:        { 
+                unit: 'mm', 
+                format: 'a4', 
+                orientation: 'portrait',
+                compress: true
+            },
+            pagebreak:    { 
+                mode: ['avoid-all', 'css'],
+                avoid: [
+                    '.no-break', 
+                    '.pdf-group', 
+                    'table', 
+                    '.pdf-info-card',
+                    '.pdf-results-table',
+                    '.pdf-chart-container'
+                ]
+            }
+        };
+
+        try {
+            const worker = html2pdf().set(opt).from(pdfContent).toPdf();
+            const pdf = await worker.get('pdf');
+            const blob = pdf.output('blob');
+
+            if (download) downloadBlob(blob, filename);
+            return { blob, filename };
+        } finally {
+            document.body.classList.remove('pdf-exporting');
+        }
+    }
+
+    async function sharePdfFile({ blob, filename, text = '' }) {
+        const file = new File([blob], filename, { type: 'application/pdf' });
+        if (navigator.canShare && navigator.canShare({ files: [file] }) && navigator.share) {
+            await navigator.share({ title: 'گزارش نظرسنجی مشتریان', text, files: [file] });
+            return true;
+        }
+        return false;
+    }
+
+    async function sendPdf(target, trackingCode = '') {
+        const customerName = document.getElementById('customer-name').value.trim();
+        if (!customerName) {
+            showMessage('لطفاً حداقل نام خود را وارد کنید.', 'error');
+            return;
+        }
+
+        showMessage('در حال ساخت گزارش PDF...', 'info');
+
+        let pdfPack;
+        try {
+            pdfPack = await exportPdfFromPage({ download: false, trackingCode });
+        } catch (err) {
+            console.error(err);
+            showMessage('خطا در ساخت PDF. لطفاً دوباره تلاش کنید.', 'error');
+            return;
+        }
+
+        const formData = collectFormData();
+        
+        // ساخت متن خلاصه برای پیام
+        const baseText =
+            `📋 *گزارش نظرسنجی مشتریان - شرکت مهندسی احداث گستر نیروی پارس*\n\n` +
+            `👤 *اطلاعات مشتری:*\n` +
+            `نام: ${formData.customerName}\n` +
+            `تلفن: ${formData.phone || 'ثبت نشده'}\n` +
+            `شرکت: ${formData.company || 'ثبت نشده'}\n\n` +
+            `🏆 *امتیاز کلی:* ${formData.overallRating}/20\n` +
+            `📈 *احتمال معرفی:* ${formData.referralPercentage}%\n\n` +
+            (trackingCode ? `🔖 *شماره پیگیری:* ${trackingCode}\n` : '') +
+            `📅 *تاریخ تکمیل فرم:* ${formData.submissionDatePersian}\n\n` +
+            `فایل PDF گزارش کامل پیوست شده است.`;
+
+        // 1) اگر Share فایل ممکن بود
+        const shared = await sharePdfFile({ blob: pdfPack.blob, filename: pdfPack.filename, text: baseText });
+        if (shared) {
+            showMessage('PDF آماده ارسال شد.', 'success');
+            return;
+        }
+
+        // 2) اگر Share فایل ممکن نبود
+        downloadBlob(pdfPack.blob, pdfPack.filename);
+
+        if (target === 'whatsapp') {
+            const companyPhoneNumber = '989106836762';
+            const whatsappUrl = `https://wa.me/${companyPhoneNumber}?text=${encodeURIComponent(baseText)}`;
+            window.open(whatsappUrl, '_blank');
+            showMessage('واتساپ باز شد. فایل PDF دانلود شد؛ لطفاً PDF را پیوست کنید.', 'info');
+        }
+
+        if (target === 'telegram') {
+            const tgUrl = `https://t.me/share/url?url=${encodeURIComponent('https://www.egnpco.com')}&text=${encodeURIComponent(baseText)}`;
+            window.open(tgUrl, '_blank');
+            showMessage('تلگرام باز شد. فایل PDF دانلود شد؛ لطفاً PDF را پیوست کنید.', 'info');
+        }
+
+        if (target === 'email') {
+            const subject = `گزارش نظرسنجی مشتری - ${formData.customerName}${trackingCode ? ' - ' + trackingCode : ''}`;
+            const body = `با سلام\n\nفایل PDF گزارش نظرسنجی را پیوست کرده‌ام.\n\n${baseText}\n\nبا تشکر`;
+            const mailtoLink = `mailto:info@egnpco.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailtoLink;
+            showMessage('ایمیل باز شد. فایل PDF دانلود شد؛ لطفاً PDF را پیوست کنید.', 'info');
+        }
+    }
+
+    // ===================== UI Init =====================
+    document.addEventListener('DOMContentLoaded', function() {
+        const logo = document.getElementById('company-logo');
+        const placeholder = document.getElementById('logo-placeholder');
+        
+        // چک کردن بارگذاری لوگو
+        if (logo) {
+            // ابتدا نمایش لوگو
+            logo.style.display = 'block';
+            placeholder.style.display = 'none';
+            
+            // اگر لوگو لود نشد، پلیدر نمایش داده شود
+            logo.onerror = function() {
+                this.style.display = 'none';
+                placeholder.style.display = 'flex';
+            };
+            
+            // اگر لوگو لود شد، پلیدر مخفی شود
+            logo.onload = function() {
+                this.style.display = 'block';
+                placeholder.style.display = 'none';
+            };
+            
+            // بررسی اگر لوگو از قبل لود شده است
+            if (logo.complete) {
+                if (logo.naturalHeight === 0) {
+                    // تصویر لود نشده
+                    logo.style.display = 'none';
+                    placeholder.style.display = 'flex';
+                }
+            }
+        }
+
+        const ratingSlider = document.getElementById('overall-rating-slider');
+        const ratingDisplay = document.getElementById('rating-display');
+
+        ratingSlider.addEventListener('input', function() {
+            ratingDisplay.textContent = this.value;
+            updateRatingColor(this.value);
+            createRatingEmojis(this.value);
+        });
+
+        const percentageSlider = document.getElementById('referral-percentage');
+        const percentageDisplay = document.getElementById('percentage-display');
+
+        percentageSlider.addEventListener('input', function() {
+            percentageDisplay.textContent = this.value;
+            createPercentageEmojis(this.value);
+        });
+
+        // مقادیر پیشفرض
+        ratingDisplay.textContent = ratingSlider.value;
+        updateRatingColor(ratingSlider.value);
+        createRatingEmojis(ratingSlider.value);
+
+        percentageDisplay.textContent = percentageSlider.value;
+        createPercentageEmojis(percentageSlider.value);
+    });
+
+    // بازنشانی فرم
+    document.getElementById('reset-btn').addEventListener('click', function() {
+        if (confirm('آیا از بازنشانی فرم اطمینان دارید؟ تمام اطلاعات وارد شده پاک خواهد شد.')) {
+            document.getElementById('survey-form').reset();
+
+            // امتیازها
+            document.getElementById('overall-rating-slider').value = 20;
+            document.getElementById('rating-display').textContent = 20;
+            updateRatingColor(20);
+            createRatingEmojis(20);
+
+            document.getElementById('referral-percentage').value = 80;
+            document.getElementById('percentage-display').textContent = 80;
+            createPercentageEmojis(80);
+
+            showMessage('فرم با موفقیت بازنشانی شد.', 'info');
+        }
+    });
+
+    // دانلود PDF
+    document.getElementById('download-pdf-btn').addEventListener('click', async function() {
+        const customerName = document.getElementById('customer-name').value.trim();
+        if (!customerName) {
+            showMessage('لطفاً حداقل نام خود را وارد کنید تا بتوانید PDF بگیرید.', 'error');
+            return;
+        }
+        showMessage('در حال ساخت گزارش PDF...', 'info');
+        try {
+            await exportPdfFromPage({ download: true });
+            showMessage('گزارش PDF با موفقیت دانلود شد.', 'success');
+        } catch (e) {
+            console.error(e);
+            showMessage('خطا در ساخت PDF.', 'error');
+        }
+    });
+
+    // منوی ارسال PDF
+    const sharePdfMenu = document.getElementById('share-pdf-menu');
+    const shareOverlay = document.getElementById('share-overlay');
+    const closeShareMenu = document.getElementById('close-share-menu');
+    const sharePdfBtn = document.getElementById('share-pdf-btn');
+
+    sharePdfBtn.addEventListener('click', function() {
+        const customerName = document.getElementById('customer-name').value.trim();
+        if (!customerName) {
+            showMessage('لطفاً حداقل نام خود را وارد کنید تا بتوانید فرم را ارسال کنید.', 'error');
+            return;
+        }
+        sharePdfMenu.classList.add('active');
+        shareOverlay.classList.add('active');
+    });
+
+    closeShareMenu.addEventListener('click', function() {
+        sharePdfMenu.classList.remove('active');
+        shareOverlay.classList.remove('active');
+    });
+
+    shareOverlay.addEventListener('click', function() {
+        sharePdfMenu.classList.remove('active');
+        shareOverlay.classList.remove('active');
+    });
+
+    document.getElementById('share-whatsapp').addEventListener('click', async function() {
+        sharePdfMenu.classList.remove('active');
+        shareOverlay.classList.remove('active');
+        await sendPdf('whatsapp');
+    });
+
+    document.getElementById('share-telegram').addEventListener('click', async function() {
+        sharePdfMenu.classList.remove('active');
+        shareOverlay.classList.remove('active');
+        await sendPdf('telegram');
+    });
+
+    document.getElementById('share-email').addEventListener('click', async function() {
+        sharePdfMenu.classList.remove('active');
+        shareOverlay.classList.remove('active');
+        await sendPdf('email');
+    });
+
+    document.getElementById('share-download').addEventListener('click', async function() {
+        sharePdfMenu.classList.remove('active');
+        shareOverlay.classList.remove('active');
+        await exportPdfFromPage({ download: true });
+        showMessage('PDF دانلود شد.', 'success');
+    });
+
+    // اشتراک گذاری فرم
+    document.getElementById('share-btn-new').addEventListener('click', function() {
+        const formData = collectFormData();
+        let shareText = '📋 *فرم نظرسنجی مشتریان - شرکت مهندسی احداث گستر نیروی پارس*\n\n';
+        shareText += '👤 نام: ' + (formData.customerName || 'تعریف نشده') + '\n';
+        shareText += '📞 تلفن: ' + (formData.phone || 'تعریف نشده') + '\n';
+        shareText += '🏢 شرکت: ' + (formData.company || 'تعریف نشده') + '\n';
+        shareText += '⭐ امتیاز کلی: ' + formData.overallRating + '/20\n';
+        shareText += '📊 احتمال معرفی: ' + formData.referralPercentage + '%\n\n';
+        shareText += '🌐 وب سایت: https://www.egnpco.com\n';
+        shareText += '📷 اینستاگرام: https://www.instagram.com/ehdasgostar\n\n';
+        shareText += 'لینک فرم: ' + window.location.href;
+
+        if (navigator.share) {
+            navigator.share({ title: 'فرم نظرسنجی مشتریان', text: shareText, url: window.location.href })
+                .then(() => showMessage('فرم با موفقیت به اشتراک گذاشته شد.', 'success'))
+                .catch((error) => {
+                    if (String(error).includes('AbortError')) showMessage('اشتراک گذاری لغو شد.', 'info');
+                    else fallbackShare(shareText);
+                });
+        } else fallbackShare(shareText);
+    });
+
+    function fallbackShare(shareText) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(shareText)
+                .then(() => showMessage('متن فرم در حافظه کپی شد. می‌توانید آن را به اشتراک بگذارید.', 'success'))
+                .catch(() => {
+                    const textArea = document.createElement('textarea');
+                    textArea.value = shareText;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    try {
+                        document.execCommand('copy');
+                        showMessage('متن فرم در حافظه کپی شد.', 'success');
+                    } catch (err) {
+                        showMessage('متن فرم آماده اشتراک است:\n\n' + shareText, 'info');
+                    }
+                    document.body.removeChild(textArea);
+                });
+        } else showMessage('متن فرم آماده اشتراک است:\n\n' + shareText, 'info');
+    }
+
+    // دکمه واتساپ پشتیبانی
+    document.getElementById('whatsapp-btn-new').addEventListener('click', function() {
+        const phoneNumber = '989106836762';
+        const message = 'سلام، من فرم نظرسنجی شرکت مهندسی احداث گستر نیروی پارس را تکمیل کرده‌ام و می‌خواهم اطلاعاتم را ارسال کنم.';
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+        showMessage('واتساپ در حال باز شدن است...', 'info');
+    });
+
+    // ارسال فرم
+    document.getElementById('survey-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const customerName = document.getElementById('customer-name').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+
+        if (!customerName) {
+            showMessage('لطفاً نام و نام خانوادگی خود را وارد کنید.', 'error');
+            document.getElementById('customer-name').focus();
+            return;
+        }
+        if (!phone) {
+            showMessage('لطفاً شماره تلفن همراه خود را وارد کنید.', 'error');
+            document.getElementById('phone').focus();
+            return;
+        }
+        if (!validatePhone(phone)) {
+            showMessage('شماره تلفن همراه معتبر نیست. شماره باید با 09 شروع شده و 11 رقم باشد.', 'error');
+            document.getElementById('phone').focus();
+            return;
+        }
+
+        const ratingSelected = document.querySelector('input[name="price"]:checked') ||
+                               document.querySelector('input[name="weld"]:checked');
+
+        if (!ratingSelected) {
+            showMessage('لطفاً حداقل یکی از معیارهای نظرسنجی را ارزیابی کنید.', 'error');
+            return;
+        }
+
+        const submitBtn = document.getElementById('submit-btn');
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span>در حال ارسال...</span>';
+
+        showMessage('در حال ذخیره و ارسال اطلاعات...', 'info');
+
+        setTimeout(async () => {
+            const formData = collectFormData();
+            const trackingCode = 'TRK-' + Date.now().toString().slice(-8);
+
+            try {
+                const submissions = JSON.parse(localStorage.getItem('surveySubmissions') || '[]');
+                submissions.push({ ...formData, trackingCode });
+                localStorage.setItem('surveySubmissions', JSON.stringify(submissions));
+
+                showMessage(`✅ با تشکر! فرم شما با موفقیت ثبت شد.\n📋 شماره پیگیری: ${trackingCode}`, 'success');
+
+                // بعد از ثبت: همان خروجی PDF با خلاصه نتایج آماده ارسال شود
+                await sendPdf('whatsapp', trackingCode);
+
+                // ریست بعد از کمی زمان
+                setTimeout(() => {
+                    document.getElementById('survey-form').reset();
+
+                    document.getElementById('overall-rating-slider').value = 20;
+                    document.getElementById('rating-display').textContent = 20;
+                    updateRatingColor(20);
+                    createRatingEmojis(20);
+
+                    document.getElementById('referral-percentage').value = 80;
+                    document.getElementById('percentage-display').textContent = 80;
+                    createPercentageEmojis(80);
+
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-save"></i><span>ذخیره و ارسال فرم</span>';
+                }, 1200);
+
+            } catch (error) {
+                console.error(error);
+                showMessage('❌ فرم ثبت شد اما امکان ذخیره محلی وجود نداشت. لطفاً از شماره پیگیری یادداشت کنید.', 'error');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-save"></i><span>ذخیره و ارسال فرم</span>';
+            }
+
+            console.log('📊 اطلاعات فرم ثبت شده:', formData);
+            console.log('🔖 شماره پیگیری:', trackingCode);
+
+        }, 1200);
+    });
+
+    // اعتبارسنجی لحظه‌ای شماره تلفن
+    document.getElementById('phone').addEventListener('input', function(e) {
+        const phoneValue = e.target.value.replace(/\D/g, '');
+        e.target.value = phoneValue;
+
+        if (phoneValue.length > 0) {
+            if (validatePhone(phoneValue)) {
+                e.target.style.borderColor = '#28a745';
+                e.target.style.boxShadow = '0 0 0 4px rgba(40, 167, 69, 0.15)';
+            } else {
+                e.target.style.borderColor = '#dc3545';
+                e.target.style.boxShadow = '0 0 0 4px rgba(220, 53, 69, 0.15)';
+            }
+        } else {
+            e.target.style.borderColor = '#ced4da';
+            e.target.style.boxShadow = 'none';
+        }
+    });
+
+    // هدایت به بالا
+    window.scrollTo(0, 0);
+
+    // خوش‌آمد
+    window.addEventListener('load', function() {
+        setTimeout(() => { showMessage('👋 به فرم نظرسنجی شرکت مهندسی احداث گستر نیروی پارس خوش آمدید!', 'info'); }, 1000);
+    });
+
+    // ذخیره خودکار پیش‌نویس
+    let saveTimeout;
+    document.getElementById('survey-form').addEventListener('input', function() {
+        clearTimeout(saveTimeout);
+        saveTimeout = setTimeout(() => {
+            try {
+                const formData = collectFormData();
+                localStorage.setItem('surveyDraft', JSON.stringify(formData));
+                console.log('💾 پیش‌نویس فرم ذخیره شد.');
+            } catch (error) {}
+        }, 1200);
+    });
+
+    // بارگذاری پیش‌نویس
+    window.addEventListener('load', function() {
+        try {
+            const draft = JSON.parse(localStorage.getItem('surveyDraft'));
+            if (draft) {
+                if (confirm('یک پیش‌نویس ذخیره شده از فرم شما وجود دارد. آیا مایلید آن را بارگذاری کنید؟')) {
+                    document.getElementById('customer-name').value = draft.customerName || '';
+                    document.getElementById('phone').value = draft.phone || '';
+                    document.getElementById('company-name').value = draft.company || '';
+                    document.getElementById('product-type').value = draft.productType || '';
+                    document.getElementById('product-quantity').value = draft.productQuantity || '';
+                    document.getElementById('order-date').value = draft.orderDate || '';
+
+                    document.getElementById('overall-rating-slider').value = draft.overallRating || 20;
+                    document.getElementById('rating-display').textContent = draft.overallRating || 20;
+                    updateRatingColor(draft.overallRating || 20);
+                    createRatingEmojis(draft.overallRating || 20);
+
+                    document.getElementById('referral-percentage').value = draft.referralPercentage || 80;
+                    document.getElementById('percentage-display').textContent = draft.referralPercentage || 80;
+                    createPercentageEmojis(draft.referralPercentage || 80);
+
+                    document.getElementById('suggestions').value = draft.suggestions || '';
+
+                    if (draft.referral) {
+                        const el = document.querySelector(`input[name="referral"][value="${draft.referral}"]`);
+                        if (el) el.checked = true;
+                    }
+
+                    if (draft.ratings) {
+                        Object.keys(draft.ratings).forEach(key => {
+                            const value = draft.ratings[key];
+                            if (value) {
+                                const r = document.querySelector(`input[name="${key}"][value="${value}"]`);
+                                if (r) r.checked = true;
+                            }
+                        });
+                    }
+
+                    showMessage('پیش‌نویس فرم با موفقیت بارگذاری شد.', 'info');
+                }
+            }
+        } catch (error) {}
+    });
+</script>
+</body>
+</html>
